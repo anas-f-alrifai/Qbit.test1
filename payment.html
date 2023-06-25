@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      padding: 10px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .main-container {
+      padding: 20px;
+      margin: 20px;
+      border-radius: 15px;
+    }
+    
+    .img-fluid{
+         border-radius: 5px;
+         max-width: 315px;
+         margin: 10px;
+    }
+
+
+    .payment-provider {
+      margin-bottom: 30px;
+    }
+
+    .payment-provider-name {
+      font-weight: bold;
+      font-size: 30px;
+      margin: 10px;
+    }
+
+    .payment-code-container {
+      background-color: #444;
+      padding: 10px;
+      margin-top: 12px;
+      margin: 10px;
+      position: relative;
+      cursor: pointer;
+      border-radius: 5px;
+      
+
+    }
+
+    .payment-code-container p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .copied-message {
+      position: absolute;
+      top: 8;
+      right: 10;
+      background-color: transparent;
+      color: #00A7C2;
+      padding: 5px 10px;
+      font-size: 14px;
+      display: none;
+    }
+    
+
+
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .col-md-6{
+         text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">ePayment</div>
+    <div>
+      <button href="/" class="btn btn-primary">Home</button>
+      <button href="/comtact-us/" class="btn btn-secondary">Contact</button>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="payment-provider">
+      <div class="payment-provider-name">Syriatel Cash</div>
+      <div class="payment-code-container" onclick="copyCode(this)">
+        <p>98498844</p>
+        <div class="copied-message">Copied</div>
+      </div>
+      <img src="payment-provider1-image.jpg" alt="Payment Provider 1" class="img-fluid">
+    </div>
+
+    <div class="payment-provider">
+      <div class="payment-provider-name">Cash Mobile</div>
+      <div class="payment-code-container" onclick="copyCode(this)">
+        <p>0968021026</p>
+        <div class="copied-message">Copied</div>
+      </div>
+      <img src="payment-provider2-image.jpg" alt="Payment Provider 2" class="img-fluid">
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          &copy; 2023 ePayment. All rights reserved.
+        </div>
+        <div class="col-md-6">
+          <a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyCode(element) {
+      const codeElement = element.querySelector('p');
+      const copiedMessage = element.querySelector('.copied-message');
+
+      navigator.clipboard.writeText(codeElement.innerText);
+      copiedMessage.style.display = 'block';
+
+      setTimeout(function() {
+        copiedMessage.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
